@@ -103,14 +103,13 @@ class NumeroDepartamentoForm(ModelForm):
             raise forms.ValidationError("Ingrese su nombre completo")
         return nombre
 
-    #Costo de un departamento no puede ser mayor a $100 mil.
     def clean_costo(self):
         valor = self.cleaned_data['costo']
         if valor > 1000000:
             raise forms.ValidationError("Costo fuera de margenes")
         return valor	
 
-    #Número de cuartos no puede ser 0, ni mayor a 7
+
     def clean_num_cuartos(self):
         num = self.cleaned_data['numero_cuartos']
         if num== 0 or num > 7:
