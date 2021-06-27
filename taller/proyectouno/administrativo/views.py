@@ -21,7 +21,7 @@ def index(request):
     # en la variable tipo diccionario llamada informacion_template
     # se agregará la información que estará disponible
     # en el template
-    informacion_template = {'edificios': edificio, 'index_edificios': len(edificio)}
+    informacion_template = {'edificio': edificio, 'index_edificios': len(edificio)}
     return render(request, 'index.html', informacion_template)
 
 

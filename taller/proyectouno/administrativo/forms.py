@@ -24,25 +24,6 @@ class edificioForm(ModelForm):
             raise forms.ValidationError("El nombre no puede contener L")
         return valor
 
-    def clean_direccion(self):
-        valor = self.cleaned_data['direccion']
-        num_palabras = len(valor.split())
-
-        if num_palabras < 2:
-            raise forms.ValidationError("Ingrese dos apellidos por favor")
-        return valor
-
-    def clean_ciudad(self):
-        valor = self.cleaned_data['ciudad']
-        if len(valor) != 10:
-            raise forms.ValidationError("Ingrese cédula con 10 dígitos")
-        return valor
-
-    def clean_tipo(self):
-        valor = self.cleaned_data['tipo']
-        if "@" not in valor or "utpl.edu.ec" not in valor:
-            raise forms.ValidationError("Ingrese correo válido para la Universidad")
-        return valor
 
 
 class DepartamentoForm(ModelForm):
@@ -58,7 +39,7 @@ class DepartamentoForm(ModelForm):
 
 
     def clean_nombre_completo(self):
-        valor = self.cleaned_data['nombre']
+        valor = self.cleaned_data['nombre_completo']
         num_palabras = len(valor.split())
 
         if num_palabras < 3:
@@ -111,10 +92,10 @@ class NumeroDepartamentoForm(ModelForm):
 
 
     def clean_num_cuartos(self):
-        num = self.cleaned_data['numero_cuartos']
-        if num== 0 or num > 7:
+        numero = self.cleaned_data['numero_cuartos']
+        if numero== 0 or numero > 7:
             raise forms.ValidationError("El numero de habitaciones es invalido")
-        return num
+        return numero
 
 ##
 ##- Usar formularios creados desde el archivo forms.py

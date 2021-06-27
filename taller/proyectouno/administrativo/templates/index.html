@@ -28,16 +28,16 @@
     <td>
       <ul>
         {% for t in e.num_edificio.all %}
-          <li>
-            <span>{{t.ciudad}} - {{t.tipo}} - [<a href="">editar</a>] </span>
-          </li>
+
+            <!--<span>{{t.ciudad}} - {{t.tipo}} - [<a href=""></a>] </span>---> 
+
         {% endfor %}
       </ul>
         [<a href="">+Editar</a>]
     </td>
-    <td> <a href="">ver</a> <br>
+    <td> <a href="{% url 'obtener_edificio' e.id %}">ver</a> <br>
       <a href="">editar</a> <br>
-      <a href=""
+      <a href="% url 'eliminar_edificio' e.id %"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
       eliminar</a>
     </td>

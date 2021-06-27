@@ -5,7 +5,7 @@ from django.db import models
 class Edificio(models.Model):
     nombre = models.CharField(max_length=30)
     direccion = models.CharField(max_length=30)
-    ciudad = models.CharField(max_length=30, unique=True)
+    ciudad = models.CharField(max_length=30)
     opciones_tipo=(
         ('Residencial','residencial'),
         ('Comercial','comercial'),
@@ -21,8 +21,8 @@ class Edificio(models.Model):
 
 class Departamento(models.Model):
     nombre_completo = models.CharField(max_length=30)
-    costo = models.CharField(max_length=30)
-    num_cuartos = models.CharField(max_length=30, unique=True)
+    costo = models.IntegerField()
+    num_cuartos = models.IntegerField()
     edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE,
             related_name="num_edificio")
 
