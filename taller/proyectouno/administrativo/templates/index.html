@@ -1,0 +1,55 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Edificios | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<h3>Número de Edificios {{ index_edificios }}</h3>
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Ciudad</th>
+      <th>Tipo </th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  {% for e in edificios %}
+  <tr>
+    <td> {{e.nombre}} </td>
+    <td> {{e.direccion}} </td>
+    <td> {{e.ciudad}}</td>
+    <td> {{e.tipo}}</td>
+    <td>
+      <ul>
+        {% for t in e.num_edificio.all %}
+          <li>
+            <span>{{t.ciudad}} - {{t.tipo}} - [<a href="">editar</a>] </span>
+          </li>
+        {% endfor %}
+      </ul>
+        [<a href="">+Editar</a>]
+    </td>
+    <td> <a href="">ver</a> <br>
+      <a href="">editar</a> <br>
+      <a href=""
+      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      eliminar</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+
+{% endblock %}
