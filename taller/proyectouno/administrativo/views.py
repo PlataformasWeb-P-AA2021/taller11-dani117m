@@ -36,10 +36,12 @@ def obtener_edificio(request, id):
     # se lo almacena en una variable llamada
     # estudiantes
     edificio = Edificio.objects.get(pk=id)
+    departamentos = Departamento.objects.get(pk=id)
     # en la variable tipo diccionario llamada informacion_template
     # se agregará la información que estará disponible
     # en el template
-    informacion_template = {'edificio': edificio}
+
+    informacion_template = {'edificio': edificio,'departamento': departamentos}
     return render(request, 'obtener_edificio.html', informacion_template)
 
 

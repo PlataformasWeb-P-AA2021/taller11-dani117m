@@ -3,7 +3,8 @@
 body {
   /*background: #FEFEFD;*/
   background: #FEFEFD;
-  padding: 30px;
+  padding: 10px;
+  text-align: left;
 
 }
 
@@ -18,23 +19,19 @@ section {
 }
 
 th, td {
-  padding: 15px;
+  padding: 5px;
   border-bottom: 1px solid black;
+  
 }
 
 tr:hover {
   background-color: #258EAD;
 }
 
-input[type=text], input[type=number|email] {
-  width: 25%;
-  padding: 5px 5px;
-  box-sizing: border-box;
+.titulo{
+  text-align: center;
 }
 
-input[type=text|number]:focus {
-  border: 3px solid blue;
-}
 
 label {
   padding: 12px 10px;
@@ -45,7 +42,7 @@ label {
   background: #9999FF;
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 4px;
   font-weight: bold;
 }
 
@@ -54,7 +51,7 @@ label {
 }
 
 .errorlist li {
-  color: red;
+  color: white;
 }
 
 /*Menu */
@@ -91,7 +88,7 @@ footer{
 
 .wrapper-dos-columnas {
   margin: 15px;
-  background-color: red;
+  background-color: white;
 }
 
 .row {

@@ -1,21 +1,23 @@
 {% extends "master.html" %}
 
+
 {% block title %}
   Listado de Edificios | {{ block.super }}
 {% endblock %}
 
 {% block content %}
-<h3>Número de Edificios {{ index_edificios }}</h3>
+
 
 <table id="tabla_datos">
 
   <thead>
+  
     <tr>
       <th>Nombre</th>
       <th>Direccion</th>
       <th>Ciudad</th>
       <th>Tipo </th>
-      <th>Opciones</th>
+
     </tr>
   </thead>
 
@@ -33,12 +35,13 @@
 
         {% endfor %}
       </ul>
-        [<a href="">+Editar</a>]
+        
     </td>
     <td> <a href="{% url 'obtener_edificio' e.id %}">ver</a> <br>
-      <a href="">editar</a> <br>
-      <a href="% url 'eliminar_edificio' e.id %"
+      <a href="{% url 'editar_edificio'  e.id %}">editar <i class="fas fa-eye text-success fa-lg  mr-2"></i></a> <br>
+      <a href="{% url 'eliminar_edificio' e.id %}"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
+      <i class="fas fa-eye text-success fa-lg  mr-2"></i>
       eliminar</a>
     </td>
 
